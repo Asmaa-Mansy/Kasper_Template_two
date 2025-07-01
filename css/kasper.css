@@ -1,0 +1,1110 @@
+/* Start global values */
+:root{
+    --main-color:#19c8fa;
+    --transparent-color:#0d576e6e;
+    --text-color:#777;
+    --main-padding:80px;
+}
+/* End global values */
+/* start componant */
+.heading{
+    text-align: center;
+}
+.heading h2 {
+    font-size: 40px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    position: relative;
+}
+.heading h2::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 140px;
+    bottom: 0;
+    left:50%;
+    transform: translateX(-50%); 
+    background-color: #333
+}
+.heading h2::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    bottom: -10px;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: #333 solid 2px;
+    z-index: 2;
+}
+.heading p{
+    line-height: 1.8;
+    color:var(--text-color);
+    font-size: 16px;
+    margin: 0 auto 100px;
+    max-width: 550px;
+}
+/* End componant */
+/* start global rules */
+*{  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: "open sans",sans-serif;
+}
+ul{
+    list-style: none;
+}
+.container{
+    padding-left:15px ;
+    padding-right:15px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* small screen */
+@media(min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+@media(min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+@media(min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+/* End global rules */
+/* Start format of Header */
+header{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+}
+header .container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 97px;
+}
+header .container::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: calc( 100% - 30px);
+    background-color: #2a2a2a;
+    bottom: 0;
+    left: 15px;
+    z-index: -1;
+}
+header .container .logo img{
+    height: 30px;
+}
+ .toggle-menu{
+        color: white;
+        font-size: 22px;
+    }
+@media(min-width:768px){
+    .toggle-menu{
+        display: none;
+    }
+}
+header .container nav{
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items:center;
+    gap: 20px;
+}
+header .container nav ul{
+    display:flex;
+}
+header .container nav ul a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 40px 10px ;
+    transition: 0.3s;
+    font-size: 14px;
+}
+header .container nav ul a:hover,
+header .container nav ul .active{
+    color:var(--main-color);
+    border-bottom:var(--main-color) solid 1px ;
+}
+header .container nav .form {
+    color:white;
+    padding: 10px;
+    border-left: solid 3px white;
+    font-size: 16px;
+}
+@media(max-width:767px){
+    header .container nav ul{
+        display: none;
+    }
+    .toggle-menu:hover+ul{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:100%;
+        left:0;
+        width: 100%;
+        background-color: rgb(0 0 0/50%);
+    }
+    header .container nav ul li a{
+        padding: 15px;
+    }
+}
+/* End format of Header */
+/* start Landing section */
+.landing{
+    min-height: 100vh;
+    background-color:black ;          /*alternate of background-image if it not working */
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    position: relative;
+}
+.landing .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0/ 10%)
+}
+.landing .land-text{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /*Center the element vertically*/
+    background-color:var(--transparent-color);
+    padding: 50px;
+    width: 50%;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.landing .land-text .content{
+    max-width: 460px;
+}
+.landing .land-text .content h1{
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 1.6;
+
+}
+.landing .land-text .content p{
+    font-size: 16px;
+    line-height: 2
+}
+.landing::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    width: 10px;
+    height: 10px;
+    border-bottom: white solid 6px;
+    border-left: white solid 6px;
+    background-color: transparent;
+    border-radius:2px 0 2px 0;
+    transform: rotate(45deg);
+    z-index: 10;
+}
+.landing::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    width: 10px;
+    height: 10px;
+    border-bottom: white solid 6px;
+    border-right: white solid 6px;
+    background-color: transparent;
+    border-radius:0 2px 0 2px;
+    transform: rotate(-45deg);
+}
+.landing .circles{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+ .landing .circles div{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: white 1px solid;
+}
+.circles div:nth-child(2){
+    background-color: var(--main-color);
+    border: none;
+}
+@media(max-width:767px){
+    .landing .land-text{
+        width: 100%;
+    }
+    .landing::after,
+    .landing::before{
+        display: none;
+    }
+}
+/* End Landing section */
+/* Start service section  */
+.services{
+    padding:var(--main-padding) 0;
+}
+.services .content{
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+.services .content .serv{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+.services .serv .text h3{
+    font-size: 22px;
+    color: var(--main-color);
+    margin-bottom: 30px;
+}
+.services .serv .text p{
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+.services .serv  i{
+    font-size: 48px;
+}
+@media(max-width:767px){
+    .services .content{
+   flex-direction: column;
+    text-align: center;
+}
+    .services .content .serv{
+        flex-direction: column;
+
+    }
+}
+/* End service section  */
+/* start design section  */
+.design{
+    padding: var(--main-padding) 0;
+    height: 600px;
+    background-image: url(../images/design-features.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.design::before{                  /* another way to make overlay */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0/60%);
+}
+.design .image,
+.design .text{
+    z-index: 2;
+    flex: 1;
+}
+.design .image{
+    text-align: center;
+}
+.design .image img{
+    position: relative;
+    bottom: -140px;
+}
+.design .text{
+    padding:50px;
+    background-color: var(--transparent-color);
+    color: white;
+}
+.design .text h2{
+    font-weight: normal;
+    font-size: 22px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+ .design .text ul li::before {
+    content: "\f390"; /* كود أيقونة desktop */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; /* لازم تبقى 900 علشان الأيقونات الصلبة */
+    margin-right: 10px;
+    color: white;
+}
+.design .text ul li{
+    margin-bottom: 20px;
+}
+@media(max-width:767px){
+    .design .image{
+    display: none;
+  }
+}
+/* End  design section  */
+/* start porfolio section  */
+.portfolio{
+    padding: var(--main-padding) 0;
+}
+.portfolio ul{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 19px;
+    margin-bottom: 50px;
+}
+.portfolio .active{
+    color: white;
+    padding: 5px;
+    background-color: var(--main-color);
+}
+.portfolio .content{
+    display: flex;
+    flex-wrap:wrap;
+}
+@media (min-width:768px){
+    .portfolio .content .box{
+    flex-basis: 50%;
+}
+}
+@media (min-width:1200px){
+    .portfolio .content .box{
+    flex-basis: 25%;
+}
+}
+.portfolio .content .box img{
+    max-width:100%; /* عشان الصورة تصغر معايا على حسب البوكس اللى حواليه */
+    transition: 0.3s;
+}
+.portfolio .content .box{
+    position: relative;
+    overflow: hidden;
+}
+.portfolio .content .caption{
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    padding: 20px;
+    transition: 0.3s;
+    background: white;
+    width: 100%;
+}
+.portfolio .content .caption h4{
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.portfolio .content .caption p{
+    color: var(--main-color);
+}
+.portfolio .content .box:hover img{
+    transform: rotate(5deg) scale(1.1);
+    opacity: 0.8;
+}
+.portfolio .content .box:hover .caption{
+    bottom: 0;
+}
+.portfolio a{
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+    width: 100px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    background-color: var(--main-color);
+    padding: 15px;
+    text-decoration: none;
+    margin-top: 30px;
+}
+/* End porfolio section  */
+/* start video ssection */
+.video {
+  position: relative;
+  margin-top: var(--main-padding);
+}
+
+.video::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 40%);
+  z-index: 1;
+}
+
+.video video {
+  width: 100%;
+}
+
+.video .text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  background-color: var(--transparent-color);
+  width: 100%;
+  padding :60px;
+}
+.video .text h2{
+ font-weight: normal;
+ margin-bottom: 20px;
+ text-transform: uppercase;
+}
+.video .text p{
+ margin-bottom: 30px;
+}
+.video .text a{
+text-decoration: none;
+color: white;
+background-color: black;
+text-transform: uppercase;
+padding: 10px;
+}
+/* End video ssection */
+/* start about section  */
+.about{
+    padding: var(--main-padding) 0 0;
+    text-align: center;
+    overflow: hidden;
+}
+.about img{
+    position: relative;
+    bottom: -120px;
+    margin-top: -120px;
+    max-width: 100%;
+}
+@media (max-width: 767px) {
+    .about img {
+        bottom: -60px;
+        margin-top: -60px;
+    }
+}
+/* End about section  */
+/* start statistics section */
+.statistics{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-image: url(../images/stats.png);
+    background-size: cover;
+    text-align: center;
+    position: relative;
+}
+.statistics::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+}
+.statistics .container{
+    display: flex;
+    flex-wrap:wrap ;
+    position: relative;
+}
+.statistics .container .box{
+    color: white;
+    padding: 45px;
+    background-color: var(--transparent-color);
+}
+@media(max-width:767px){
+    .statistics .container .box{
+        flex-basis: 100%;
+    }
+}
+@media(min-width: 768px){
+    .statistics .container .box{
+        flex-basis: 50%;
+    }
+
+}
+@media(min-width :992px){
+    .statistics .container .box{
+        flex-basis: 25%;
+    }
+}
+.statistics .container .box i{
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    border-radius: 50%;
+
+}
+.statistics .container .box .number{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.statistics .container .box p{
+    font-size: 14px;
+
+}
+
+/* End statistics section */
+/* start merge */
+.merge .container{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.merge .container section{
+    flex-basis: calc(50% - 40px);
+}
+/* start testimonials */
+.testimonials{
+    padding-top: var(--main-padding);
+}
+.testimonials h3{
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.testimonials .clients{
+    max-width: 1000px;
+    margin: auto;
+}
+.testimonials .client{
+    display: flex;
+    gap: 60px;
+    margin-bottom: 60px;
+    position: relative;
+    
+}
+.testimonials .client img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+@media(max-width:767px){
+    .testimonials .client{
+        flex-direction: column;
+        text-align: center;
+    }
+    .testimonials .client img{
+       margin: auto;
+    }
+
+}
+.testimonials .client p{
+    line-height: 1.8;
+}
+.testimonials .client .text{
+    position: relative;
+    padding-bottom: 40px;
+    flex: 1;
+}
+.testimonials .client .text::before{
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ccc;
+
+}
+.testimonials .client .name{
+    color: var(--text-color);
+    font-size: 14px;
+    position: absolute;
+    bottom: 20px;
+    right: 36px;
+}
+.testimonials .circles{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.testimonials .circles div{
+    background-color:transparent;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 1px var(--text-color) ;
+}
+.testimonials .circles .active{
+    background-color: var(--main-color);
+    border: none;
+}
+/* End testimonials */
+/* start skills */
+.skills{
+    padding-top: var(--main-padding);
+    position: relative;
+}
+.skills h3{
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.skills .box{
+    margin-bottom: 30px;
+}
+.skills .box .one,
+.skills .box .four 
+{
+    width: 100%;
+    height: 30px;
+    background-image: linear-gradient(to right ,#19c8fa 90% ,#ccc 90% );
+    position: relative;
+}
+.skills .box .one::before,
+.skills .box .four::before{
+    content: "90%";
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    top: -40px;
+    left: calc( 90% - 25px);
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.skills .box .one::after,
+.skills .box .four::after{
+    content: "";
+    position: absolute;
+    left: calc(90% - 7.5px);
+    border: solid transparent 8px;
+    border-top: solid black 6px;
+    top: -10px;
+}
+.skills .box .two{
+     width: 100%;
+    height: 30px;
+    background-image: linear-gradient(to right ,#19c8fa 85% ,#ccc 85% );
+    position: relative;
+}
+.skills .box .two::before{
+    content: "85%";
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    top: -40px;
+    left: calc( 85% - 25px);
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.skills .box .two::after{
+    content: "";
+    position: absolute;
+    left: calc(85% - 7.5px);
+    border: solid transparent 8px;
+    border-top: solid black 6px;
+    top: -10px;
+}
+.skills .box .three{
+     width: 100%;
+    height: 30px;
+    background-image: linear-gradient(to right ,#19c8fa 80% ,#ccc 80% );
+    position: relative;
+}
+.skills .box .three::before{
+    content: "80%";
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    top: -40px;
+    left: calc( 80% - 25px);
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.skills .box .three::after{
+    content: "";
+    position: absolute;
+    left: calc(80% - 7.5px);
+    border: solid transparent 8px;
+    border-top: solid black 6px;
+    top: -10px;
+}
+.skills .box p{
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+/* End skills */
+@media( max-width:991px){
+    .merge .container section{
+        flex-basis: 100%;
+    }
+}
+/* End merge */
+/* start quote */
+.quote{
+    margin-top: var(--main-padding);
+    padding: var(--main-padding) 0;
+    background-image: url(../images/quote.jpg);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.quote::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 80%);
+}
+.quote .container{
+    position: relative;/* to make it above overlay*/ 
+    color: white;
+}
+.quote .container q{
+    font-size: 30px;
+    margin-bottom: 20px;
+    display: block;
+    
+}
+.quote .container q::before {
+    content: "\f10d"; /* quote-left */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--main-color);
+    font-size: 20px;
+    margin-right: 8px; /* مسافة بين الأيقونة والكلام */
+}
+
+.quote .container q::after {
+    content: "\f10e"; /* quote-right */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--main-color);
+    font-size: 20px;
+    margin-left: 8px; /* مسافة بين الكلام والأيقونة */
+}
+
+/* End quote */
+/* start pricing section  */
+.pricing{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+.pricing .content{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.pricing .content .box{
+    background-color: #fbfbfb;
+    flex-basis: calc( 100% - 20px);
+}
+@media(min-width:768px){
+    .pricing .content .box{
+        flex-basis: calc(50% - 20px);
+    }
+} 
+@media(min-width:1200px){
+    .pricing .content .box{
+        flex-basis: calc( 25% - 20px);
+    }
+}
+
+.pricing .content .box .price{
+    padding: 40px 80px;
+    border-top: var(--main-color) solid 1px;
+    border-bottom: var(--main-color) solid 1px;
+}
+.pricing .content .box .price p{
+    text-transform: uppercase;
+    font-size: 19px;
+}
+.pricing .content .box .price .number{
+    font-size: 60px;
+    font-weight: bold;
+    position: relative;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+.pricing .content .box .price .number::before{
+    content: "$";
+    position: absolute;
+    left: 0px;
+    top: -8px;
+    font-size: 25px;
+    font-weight: normal;
+}
+.pricing .content .box .price .number::after{
+    content: "/mo";
+    position: absolute;
+    right: -20px;
+    bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.pricing .content .box .features{
+    border-bottom: var(--main-color) 1px solid ;
+}
+.pricing .content .box .features p{
+    font-size: 16px;
+    padding: 20px;
+    width: fit-content;
+    margin: auto;
+}
+.pricing .content .box .features p:not(:last-child){
+    border-bottom: var(--main-color) solid 1px;
+}
+.pricing .content .box a{
+    display: block;
+    text-decoration: none;
+    margin: 20px auto 50px;
+    padding: 20px;
+    border: var(--main-color) solid 1px;
+    color: rgb(58, 1, 58);
+    background-color: inherit;
+    width: fit-content
+}
+.pricing .contact{
+    margin-top: 30px;
+    text-align: center;
+}
+.pricing .contact p{
+    font-size: 20px;
+    padding: 20px;
+}
+.pricing .contact a{
+   padding: 20px;
+    text-decoration: none;
+    background-color: var(--main-color);
+    color: white;
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+/* End  pricing section  */
+.subscribe{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-image: url(../images/subscribe.jpg);
+    background-size: cover;
+    position: relative;
+    
+}
+.subscribe::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0 0 0 / 40%);
+}
+.subscribe .container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.subscribe .container p{
+    flex:1;
+    color: white;
+    line-height: 1.8;
+}
+@media(max-width:991px){
+  .subscribe .container{
+    flex-direction: column;
+  }
+  .subscribe .container p{
+    text-align: center;
+  }  
+  
+}
+.subscribe .container form{
+    color: white;
+    font-size: 17px;
+    border: white solid 1px;
+    display: flex;
+    align-items: center;
+}
+.subscribe .container form input[type="submit"]{
+    color: white;
+    background-color: var(--main-color);
+    padding: 20px;
+    border: none;
+    text-transform: uppercase;
+}
+.subscribe .container form input[type="email"]{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    margin-left: 10px;
+    caret-color: var(--main-color);
+}
+.subscribe .container form input[type="email"]::placeholder{
+    color: white;
+}
+.subscribe .container form i{
+    font-size: 20px;
+    color: white;
+    margin-left: 20px;
+}
+/* start subscribe section  */
+/* start contact Us section  */
+.contact-us{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+.contact-us .content{
+    display: flex;
+    justify-content: space-between;
+}
+.contact-us .content form{
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+}
+.contact-us .content form input{
+    padding: 20px;
+    margin-bottom: 30px;
+    border: solid #80808078 1px;
+    outline: none;
+}
+.contact-us .content form textarea{
+    padding: 20px;
+    height: 200px;
+    border: solid #80808078 1px;
+    outline: none;
+}
+.contact-us .content form input[type="submit"]{
+    width: 170px;
+    background-color: var(--main-color);
+    color: white;
+    margin-left: calc(100% - 170px);
+    text-transform: uppercase;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.contact-us .content .contacts{
+    flex: 0.35;
+}
+.contact-us .content .contacts h3{
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+.contact-us .content .contacts .phones div{
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+.contact-us .content .contacts .phones{
+    margin-bottom: 50px;
+}
+.contact-us .content .contacts .address address {
+    color: var(--text-color);
+    line-height: 2;
+    font-size: 16px;
+}
+@media(max-width:767px){
+    .contact-us .content{
+        flex-direction: column;
+    }
+    .contact-us .content .contacts{
+        order:1;
+        margin: auto;
+        text-align: center;
+    }
+    .contact-us .content form{
+        order: 2;
+    }
+}
+/* End contact Us section  */
+/* start footer section  */
+.footer{
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    background-image: url(../images/subscribe.jpg);
+    background-size: cover; 
+    text-align: center;
+    position: relative;
+}
+.footer::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0/70%);
+}
+.footer .container{
+    margin: auto;
+    position: relative;
+}
+.footer .container h3{
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    border-bottom: solid white 1px;
+    width: fit-content;
+    margin: 30px auto;
+    font-weight: normal;
+    font-size: 22px;
+}
+.footer .container .social-media i{
+    color: white;
+    padding: 15px;
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+.footer .container p{
+    color:white;
+    font-size: 16px;
+}
+.footer .container p span{
+    color:var(--main-color)
+}
+/* End footer section  */
+
